@@ -1,0 +1,40 @@
+<html>
+    <head>
+        <title>
+            Password Manager
+        </title>
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <style>
+            body {
+                text-align: center;
+                border: 20px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="loginbox">
+            <h1>
+                Login Here
+            </h1>
+
+            <form action="/login" method="POST">
+                <label for="username"></label>
+                <input type="text" name="username" placeholder="Enter Username" required>
+                <br><label for="password"></label>
+                <input type="password" name="password" placeholder="Enter Password" required><br>
+                <input type="submit" class="btn btn-outline-success" name="submit" value="Login"><br>
+            </form>
+            <a href="/signup" class="btn btn-outline-primary"> Signup</a><br>
+        </div>
+
+        <br>
+        <% if(msg!=null) { %>
+            <span id="err-msg" class="alert alert-danger">
+                <%= msg %>
+            </span><br>
+            <% } %>
+
+        <script src="js/jquery.min.js"></script>
+    </body>
+</html>

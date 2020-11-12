@@ -1,0 +1,60 @@
+<html>
+    <head>
+        <!-- <link rel="stylesheet" href="css/bootstrap.min.css"> -->
+        <link rel="stylesheet" href="css/dashboard.css" >
+    </head>
+    <body>
+
+        
+        <nav style="float: right; margin-right: 50px; margin-top: 25px;"> 
+            <a href="/logout" style="text-decoration: none; border: 1.5px solid #eab0dc; background-color: rgb(250, 106, 106); 
+                                    border-radius: 7px; 
+                                    padding: 10px;
+                                    color: lightcyan;">
+                logout
+            </a>
+        </nav>
+        <h1>Dashboard</h1>
+
+        <div class="content">
+
+            <form id="add-cafe-form" action="/dashboard" method="POST">
+                <input type="text" name="url" placeholder="url" required>
+                <input type="text" name="uname" placeholder="username" required>
+                <input type="password" name="password" placeholder="password" required>
+                <button type="submit">Add Details</button>
+            </form>
+
+            <% if(msg!=null) { %>
+            <span id="err-msg" class="alert alert-secondary">
+                <%= msg %>
+            </span><br>
+            <% } %>
+            <ul id="cafe-list" style="text-align: justify; font-weight: bolder;">
+                <li>
+                <span>URLs</span>
+                <span style="margin-left: 120px;  font-weight: bolder; ">USERNAME</span>
+                <span>PASSWORD</span>
+                </li>
+            </ul>
+            <ul id="cafe-list">
+                <% 
+                for(var i=0; i < data.length;i++) { %>
+                <li>
+                    <span> <%= data[i].url %> </span>
+                    <span> <%= data[i].uname %></span>
+                    <span> <%= data[i].password %></span>
+                    <div id="cross">X</div>
+                </li>
+                <% } %>
+                <% if(!data || data.length==0) { %>
+                <li style="text-align: center; width: auto;"> No credentials!</li>
+                <% } %>
+            </ul>
+
+        </div>
+        <%- include("./partials/footer") %>
+        <script src="js/jquery.min.js"></script>
+        <script src="js/dashboard.js"></script>
+    </body>
+</html>
