@@ -97,6 +97,7 @@ form:after{
 button{
     border: 0;
     background: #fff;
+    border: 2px solid #eab0dc;
     border-radius: 10px;
     padding: 13px;
     width: 14%;
@@ -105,4 +106,14 @@ button{
     font-family: ubuntu;
     letter-spacing: 1px;
     color: #999;
+}
+
+#logout-btn {
+    text-decoration: none;
+    border: 2px solid white;
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 15px 40px;
+    color: #f4b7e6;
+    font-weight: bolder;
 }
